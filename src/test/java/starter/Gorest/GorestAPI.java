@@ -14,7 +14,10 @@ public class GorestAPI {
                 .pathParam("users", users);
     }
 
-
-
+    @Step("Get list users page")
+    public void setGetListUsersPage(int id){
+        SerenityRest.given()
+                .pathParam("id",id);
+    }
 
 }

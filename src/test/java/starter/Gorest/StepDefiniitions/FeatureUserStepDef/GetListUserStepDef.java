@@ -36,4 +36,27 @@ public class GetListUserStepDef {
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(jsonSchemaListUser));
     }
 
+    @Given("Get list user with page {int} valid parameter")
+    public void getListUserWithPageIdValidParameter(int id) {
+        gorestAPI.setGetListUsersPage(id);
+    }
+    @When("Send get list user parameter page")
+    public void sendGetListUserParameterPage() {
+        SerenityRest.when().get(gorestAPI.GET_LIST_USERS_PAGE);
+    }
+
+    @Given("Get list user invalid parameter {string}")
+    public void getListUserInvalidParameter(String users) {
+        gorestAPI.getListUsers(users);
+    }
+
+    @Then("Status code should be {int} Not Found")
+    public void statusCodeShouldBeNotFound(int notFound) {
+        SerenityRest.then().statusCode(notFound);
+    }
+
+    @Given("Get list user invalid page parameter {int}")
+    public void getListUserInvalidPageParameterId(int id) {
+        gorestAPI.setGetListUsersPage(id);
+    }
 }
