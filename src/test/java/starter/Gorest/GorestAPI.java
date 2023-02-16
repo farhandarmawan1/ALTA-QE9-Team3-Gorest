@@ -9,6 +9,13 @@ public class GorestAPI {
     public static String GET_LIST_USERS = Constant.BASE_URL + "/{users}";
     public static String GET_LIST_USERS_PAGE = Constant.BASE_URL + "/users?page={id}";
     public static String GET_LIST_TODOS = Constant.BASE_URL + "/{todos}";
+    public static String GET_SINGLE_USER = Constant.BASE_URL + "/users/{id}";
+
+    @Step("Get single user")
+    public void setGetSingleUser(int id){
+        SerenityRest.given().pathParam("id", id);
+    }
+
     @Step("Get list users")
     public void getListUsers(String users) {
         SerenityRest.given()
