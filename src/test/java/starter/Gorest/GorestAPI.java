@@ -63,6 +63,18 @@ public class GorestAPI {
                 .pathParam("comments",comments);
     }
 
+    @Step("Get single comment valid")
+    public void getSingleCommentValid(int id){
+        SerenityRest.given()
+                .pathParam(GorestResponses.ID,id);
+    }
+
+    @Step("Get single comment invalid")
+    public void getSingleCommentInvalid(String id){
+        SerenityRest.given()
+                .pathParam("xid",id);
+    }
+
     @Step("Get list todos")
     public void getListTodos(String todos){
         SerenityRest.given().pathParam("todos", todos);
