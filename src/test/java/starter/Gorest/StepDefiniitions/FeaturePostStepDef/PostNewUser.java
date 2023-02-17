@@ -29,11 +29,6 @@ public class PostNewUser {
         SerenityRest.when().post(PostAPI.POST_VALID_USER);
     }
 
-    @Then("Status code should be {int} Created")
-    public void statusCodeShouldBeCreated(int created) {
-        SerenityRest.then().statusCode(created);
-    }
-
 //    Post new user with empty json data
     @Given("Post new user with empty json")
     public void postNewUserWithEmptyJson() {
