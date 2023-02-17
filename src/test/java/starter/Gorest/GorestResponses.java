@@ -16,4 +16,6 @@ public class GorestResponses {
     public static String TITLE = "title";
     public static String BODY = "body";
     public static String FIELD = "field";
+    public static String ID2 = "[0]['id']";
+
 }
