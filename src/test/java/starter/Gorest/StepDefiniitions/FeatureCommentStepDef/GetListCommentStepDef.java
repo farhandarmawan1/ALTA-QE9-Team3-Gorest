@@ -26,14 +26,14 @@ public class GetListCommentStepDef {
         gorestAPI.getListComment("comments");
     }
 
-    @When("Send request get list comment")
-    public void sendRequestGetListComment() {
-        SerenityRest.when().get(gorestAPI.GET_LIST_COMMENT);
-    }
-
     @Given("Get list comment with invalid parameter")
     public void getListUsersWithInvalidParameterPagePage() {
         gorestAPI.getListComment("comments/1000000000");
+    }
+
+    @When("Send request get list comment")
+    public void sendRequestGetListComment() {
+        SerenityRest.when().get(gorestAPI.GET_LIST_COMMENT);
     }
 
     @Then("Status code should be {int} not found")

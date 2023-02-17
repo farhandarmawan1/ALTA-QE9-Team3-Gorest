@@ -20,11 +20,6 @@ public class GetSingleCommentStepDef {
         gorestAPI.getSingleCommentValid(id);
     }
 
-    @When("Send request get single comment")
-    public void sendRequestGetSingleComment() {
-        SerenityRest.when().get(gorestAPI.GET_SINGLE_COMMENT);
-    }
-
     @Given("Get single comment with invalid parameter {string}")
     public void getListUsersWithBlankParameter(String id) {
         gorestAPI.getSingleCommentInvalid(id);
@@ -34,6 +29,12 @@ public class GetSingleCommentStepDef {
     public void getSingleUsersWithBlankParameterIdId(String id) {
         gorestAPI.getSingleCommentInvalid(id);
     }
+
+    @When("Send request get single comment")
+    public void sendRequestGetSingleComment() {
+        SerenityRest.when().get(gorestAPI.GET_SINGLE_COMMENT);
+    }
+
 
     @When("Send request get single comment not found")
     public void sendRequestGetSingleUsersNotFound() {

@@ -24,6 +24,18 @@ public class PostCreateCommentStepDef {
         gorestAPI.postCreatedCommentWithAuth(id,jsonReq);
     }
 
+    @Given("Post create comments invalid json and parameter {int} with auth token")
+    public void postCreateCommentInvalidJsonWithAuthToken(int id) {
+        File jsonReq = new File(Constant.JSON_REQ_BODY_COMMENT + "ReqBodyInvalidPostCreateComment.json");
+        gorestAPI.postCreatedCommentWithAuth(id,jsonReq);
+    }
+
+    @Given("Post create comments valid json and parameter {int} without auth token")
+    public void postCreateCommentvalidJsonAndParamWithoutAuthToken(int id){
+        File jsonReq = new File(Constant.JSON_REQ_BODY_COMMENT + "ReqBodyValidPostCreateComment.json");
+        gorestAPI.postCreatedCommentNoAuth(id, jsonReq);
+    }
+
     @When("Send post create comment")
     public void sendPostCreateComment() {
         SerenityRest.when().post(gorestAPI.POST_CREATED_COMMENT);
@@ -44,17 +56,5 @@ public class PostCreateCommentStepDef {
         File jsonSchema = new File(Constant.JSON_SCHEMA_COMMENT +"PostCreateCommentJSONSchema.json");
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
     }
-
-    @Given("Post create comments invalid json and parameter {int} with auth token")
-    public void postCreateCommentInvalidJsonWithAuthToken(int id) {
-        File jsonReq = new File(Constant.JSON_REQ_BODY_COMMENT + "ReqBodyInvalidPostCreateComment.json");
-        gorestAPI.postCreatedCommentWithAuth(id,jsonReq);
-    }
-
-    @Given("Post create comments valid json and parameter {int} without auth token")
-    public void postCreateCommentvalidJsonAndParamWithoutAuthToken(int id){
-        File jsonReq = new File(Constant.JSON_REQ_BODY_COMMENT + "ReqBodyValidPostCreateComment.json");
-        gorestAPI.postCreatedCommentNoAuth(id, jsonReq);
-    }
-
+    
 }

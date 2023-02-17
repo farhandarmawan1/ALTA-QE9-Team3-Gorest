@@ -24,6 +24,18 @@ public class PutUpdateCommentStepDef {
         gorestAPI.putUpdateCommentWithAuth(id,jsonReq);
     }
 
+    @Given("Put Update comments invalid json and parameter {int} with auth token")
+    public void putUpdateCommentInvalidJsonWithAuthToken(int id) {
+        File jsonReq = new File(Constant.JSON_REQ_BODY_COMMENT + "ReqBodyInvalidUpdateComment.json");
+        gorestAPI.putUpdateCommentWithAuth(id,jsonReq);
+    }
+
+    @Given("Put Update comments valid json and parameter {int} without auth token")
+    public void putUpdateCommentvalidJsonAndParamWithoutAuthToken(int id){
+        File jsonReq = new File(Constant.JSON_REQ_BODY_COMMENT + "ReqBodyValidUpdateComment.json");
+        gorestAPI.putUpdateCommentNoAuth(id, jsonReq);
+    }
+
     @When("Send put Update comment")
     public void sendPutUpdateComment() {
         SerenityRest.when().put(gorestAPI.PUT_PATCH_UPDATE_COMMENT);
@@ -42,18 +54,6 @@ public class PutUpdateCommentStepDef {
     public void validatePutPatchUpdateCommentResourcesJsonSchema() {
         File jsonSchema = new File(Constant.JSON_SCHEMA_COMMENT +"PutPatchUpdateCommentJSONSchema.json");
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
-    }
-
-    @Given("Put Update comments invalid json and parameter {int} with auth token")
-    public void putUpdateCommentInvalidJsonWithAuthToken(int id) {
-        File jsonReq = new File(Constant.JSON_REQ_BODY_COMMENT + "ReqBodyInvalidUpdateComment.json");
-        gorestAPI.putUpdateCommentWithAuth(id,jsonReq);
-    }
-
-    @Given("Put Update comments valid json and parameter {int} without auth token")
-    public void putUpdateCommentvalidJsonAndParamWithoutAuthToken(int id){
-        File jsonReq = new File(Constant.JSON_REQ_BODY_COMMENT + "ReqBodyValidUpdateComment.json");
-        gorestAPI.putUpdateCommentNoAuth(id, jsonReq);
     }
 
 }

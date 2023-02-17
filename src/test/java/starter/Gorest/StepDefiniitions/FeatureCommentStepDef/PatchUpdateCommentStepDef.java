@@ -24,11 +24,6 @@ public class PatchUpdateCommentStepDef {
         gorestAPI.patchUpdateCommentWithAuth(id,jsonReq);
     }
 
-    @When("Send patch Update comment")
-    public void sendPatchUpdateComment() {
-        SerenityRest.when().patch(gorestAPI.PUT_PATCH_UPDATE_COMMENT);
-    }
-
     @Given("Patch Update comments invalid json and parameter {int} with auth token")
     public void patchUpdateCommentInvalidJsonWithAuthToken(int id) {
         File jsonReq = new File(Constant.JSON_REQ_BODY_COMMENT + "ReqBodyInvalidUpdateComment.json");
@@ -41,4 +36,8 @@ public class PatchUpdateCommentStepDef {
         gorestAPI.patchUpdateCommentNoAuth(id, jsonReq);
     }
 
+    @When("Send patch Update comment")
+    public void sendPatchUpdateComment() {
+        SerenityRest.when().patch(gorestAPI.PUT_PATCH_UPDATE_COMMENT);
+    }
 }

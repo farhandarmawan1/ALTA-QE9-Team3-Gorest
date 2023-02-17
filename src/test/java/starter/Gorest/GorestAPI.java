@@ -23,7 +23,8 @@ public class GorestAPI {
     public static String GET_SINGLE_COMMENT = Constant.BASE_URL + "/posts/{id}/comments";
     public static String POST_CREATED_COMMENT = Constant.BASE_URL + "/posts/{id}/comments";
     public static String PUT_PATCH_UPDATE_COMMENT = Constant.BASE_URL + "/posts/{id}";
-    public static String DELETE_COMMENT = Constant.BASE_URL + "/comments/{id}";
+    public static String DELETE_COMMENT = Constant.BASE_URL + "/posts/{id}";
+    public static String DELETE_COMMENT_STRING = Constant.BASE_URL + "/posts/{string}";
 
     @Step("Token Authorization")
     public void setTOKEN (){
@@ -121,6 +122,24 @@ public class GorestAPI {
                 .pathParam(GorestResponses.ID,id)
                 .contentType(ContentType.JSON)
                 .body(json);
+    }
+
+    @Step("Delete comments with auth")
+    public void setDeleteCommentWithAuth(int id){
+        SerenityRest.given().header("Authorization","Bearer "+TOKEN)
+                .pathParam(GorestResponses.ID,id);
+    }
+
+    @Step("Delete comments invalid parameter with auth")
+    public void setDeleteCommentInvalidParameterWithAuth(String id){
+        SerenityRest.given().header("Authorization","Bearer "+TOKEN)
+                .pathParam(GorestResponses.ID,id);
+    }
+
+    @Step("Delete comments without auth")
+    public void setDeleteCommentWithoutAuth(int id){
+        SerenityRest.given()
+                .pathParam(GorestResponses.ID,id);
     }
 
     @Step("Get list todos")
