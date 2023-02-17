@@ -19,6 +19,7 @@ public class GorestAPI {
     public static String GET_LIST_TODOS = Constant.BASE_URL + "/{todos}";
     public static String GET_SINGLE_USER = Constant.BASE_URL + "/users/{id}";
     public static String PUT_SINGLE_USER = Constant.BASE_URL + "/users/{put}";
+    public static String DELETE_SINGLE_USER = Constant.BASE_URL + "/users/{delete}";
     public static String POST_CREATE_USER = Constant.BASE_URL + "/{post}/";
     public static String USERS  = Constant.BASE_URL + "/users/";
 
@@ -26,6 +27,12 @@ public class GorestAPI {
     public void setTOKEN (){
         SerenityRest.given()
                 .header("Authorization","Bearer"+TOKEN);}
+    @Step ("Delete user")
+    public void setDeleteSingleUser(int id){
+        SerenityRest.given()
+                .pathParam("delete", id);
+
+    }
 
     @Step("PUT update User no auth")
     public void setPutUpdateUserNoAuth(int id) {
