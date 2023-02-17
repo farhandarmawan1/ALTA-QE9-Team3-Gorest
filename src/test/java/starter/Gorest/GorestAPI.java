@@ -75,6 +75,54 @@ public class GorestAPI {
                 .pathParam("xid",id);
     }
 
+    @Step("Post Create comment with auth")
+    public void postCreatedCommentWithAuth(int id, File json){
+        SerenityRest.given().header("Authorization","Bearer "+TOKEN)
+                .pathParam(GorestResponses.ID,id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
+    @Step("Post Create comment without auth")
+    public void postCreatedCommentNoAuth(int id, File json){
+        SerenityRest.given()
+                .pathParam(GorestResponses.ID,id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
+    @Step("Put Update comment with auth")
+    public void putUpdateCommentWithAuth(int id, File json){
+        SerenityRest.given().header("Authorization","Bearer "+TOKEN)
+                .pathParam(GorestResponses.ID,id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
+    @Step("Put Update comment without auth")
+    public void putUpdateCommentNoAuth(int id, File json){
+        SerenityRest.given()
+                .pathParam(GorestResponses.ID,id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
+    @Step("Patch Update comment with auth")
+    public void patchUpdateCommentWithAuth(int id, File json){
+        SerenityRest.given().header("Authorization","Bearer "+TOKEN)
+                .pathParam(GorestResponses.ID,id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
+    @Step("Patch Update comment without auth")
+    public void patchUpdateCommentNoAuth(int id, File json){
+        SerenityRest.given()
+                .pathParam(GorestResponses.ID,id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
     @Step("Get list todos")
     public void getListTodos(String todos){
         SerenityRest.given().pathParam("todos", todos);
