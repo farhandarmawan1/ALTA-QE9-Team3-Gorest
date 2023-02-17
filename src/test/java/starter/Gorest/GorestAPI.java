@@ -19,11 +19,17 @@ public class GorestAPI {
     public static String GET_LIST_TODOS = Constant.BASE_URL + "/{todos}";
     public static String GET_SINGLE_USER = Constant.BASE_URL + "/users/{id}";
     public static String POST_CREATE_USER = Constant.BASE_URL + "/{post}/";
+    public static String GET_LIST_COMMENT = Constant.BASE_URL + "/{comments}";
+    public static String GET_SINGLE_COMMENT = Constant.BASE_URL + "/posts/{id}/comments";
+    public static String POST_CREATED_COMMENT = Constant.BASE_URL + "/posts/{id}/comments";
+    public static String PUT_PATCH_UPDATE_COMMENT = Constant.BASE_URL + "/posts/{id}";
+    public static String DELETE_COMMENT = Constant.BASE_URL + "/comments/{id}";
 
     @Step("Token Authorization")
     public void setTOKEN (){
         SerenityRest.given()
                 .header("Authorization","Bearer"+TOKEN);}
+
     @Step("Post Create New User")
     public void setPostCreateUser(String post) {
         SerenityRest.given().header("Authorization","Bearer "+TOKEN)
@@ -50,6 +56,13 @@ public class GorestAPI {
         SerenityRest.given()
                 .pathParam("id",id);
     }
+
+    @Step("Get list comment")
+    public void getListComment(String comments){
+        SerenityRest.given()
+                .pathParam("comments",comments);
+    }
+
     @Step("Get list todos")
     public void getListTodos(String todos){
         SerenityRest.given().pathParam("todos", todos);
