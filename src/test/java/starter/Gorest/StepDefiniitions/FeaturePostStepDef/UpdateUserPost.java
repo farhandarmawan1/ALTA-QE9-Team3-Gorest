@@ -57,11 +57,6 @@ public class UpdateUserPost {
         putAPI.updateValidUser(id, jsonReq);
     }
 
-    @Then("Status code should be {int} Unprocessable Entity")
-    public void statusCodeShouldBeUnprocessableEntity(int entity) {
-        SerenityRest.then().statusCode(entity);
-    }
-
     @And("Response body should be {string} as field and {string} as message")
     public void responseBodyShouldBeAsFieldAndAsMessage(String field, String message) {
         SerenityRest.then()
