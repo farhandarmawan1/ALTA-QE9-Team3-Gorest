@@ -8,14 +8,14 @@ Feature: [Go Rest API] Get Single Comment Feature
 
   Scenario Outline: Negative Case Get Single Comment with Invalid Parameter
     Given Get single comment with invalid parameter <id>
-    When Send request get single comment
+    When Send request get single comment invalid
     Then Status code should be 404 Not Found
     Examples:
       | id       |
       | "asdasd" |
       | "@#$@$%" |
 
-    Scenario: Negative Case Get SIngle Comment with Blank Parameter
-      Given Get single comment with blank parameter id asdfh
-      When Send request get single comment
+    Scenario: Negative Case Get Single Comment with Blank Parameter
+      Given Get single comment with blank parameter id blank
+      When Send request get single comment not found
       Then Status code should be 404 Not Found

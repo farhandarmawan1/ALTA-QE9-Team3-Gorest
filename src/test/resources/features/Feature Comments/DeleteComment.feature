@@ -17,3 +17,8 @@ Feature: [Go Rest API] Delete Comment Resources
       | id       |
       | "asdasd" |
       | "#@$#@$" |
+
+  Scenario: Negative Case Delete Comment with Blank Parameter with Auth Token
+    Given Delete comments blank parameter blank with auth token
+    When Send request delete comment blank
+    Then Status code should be 404 Not Found

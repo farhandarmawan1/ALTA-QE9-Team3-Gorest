@@ -26,8 +26,12 @@ public class DeleteCommentsStepDef {
 
     @Given("Delete comments valid parameter {int} without auth token")
     public void deleteCommentvalidParamWithoutAuthToken(int id){
-        File jsonReq = new File(Constant.JSON_REQ_BODY_COMMENT + "ReqBodyValidUpdateComment.json");
         gorestAPI.setDeleteCommentWithoutAuth(id);
+    }
+
+    @Given("Delete comments blank parameter blank with auth token")
+    public void deleteCommentsBlankParameterIdWithAuthToken() {
+        gorestAPI.setDeleteCommentBlankParameterWithAuth();
     }
 
     @When("Send request delete comment")
@@ -40,8 +44,14 @@ public class DeleteCommentsStepDef {
         SerenityRest.when().delete(gorestAPI.DELETE_COMMENT_STRING);
     }
 
+    @When("Send request delete comment blank")
+    public void sendDeleteCommentBlank() {
+        SerenityRest.when().delete(gorestAPI.DELETE_COMMENT_BLANK);
+    }
+
     @Then("Status code should be {int} No Content")
     public void statusCodeShouldBeNoContent(int nocontent) {
         SerenityRest.then().statusCode(nocontent);
     }
+
 }

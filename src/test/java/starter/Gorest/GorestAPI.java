@@ -21,10 +21,13 @@ public class GorestAPI {
     public static String POST_CREATE_USER = Constant.BASE_URL + "/{post}/";
     public static String GET_LIST_COMMENT = Constant.BASE_URL + "/{comments}";
     public static String GET_SINGLE_COMMENT = Constant.BASE_URL + "/posts/{id}/comments";
+    public static String GET_SINGLE_COMMENT_INVALID = Constant.BASE_URL + "/posts/{string}/comments";
+    public static String GET_SINGLE_COMMENT_BLANK = Constant.BASE_URL + "/posts//comments";
     public static String POST_CREATED_COMMENT = Constant.BASE_URL + "/posts/{id}/comments";
     public static String PUT_PATCH_UPDATE_COMMENT = Constant.BASE_URL + "/posts/{id}";
     public static String DELETE_COMMENT = Constant.BASE_URL + "/posts/{id}";
     public static String DELETE_COMMENT_STRING = Constant.BASE_URL + "/posts/{string}";
+    public static String DELETE_COMMENT_BLANK = Constant.BASE_URL + "/posts/";
 
     @Step("Token Authorization")
     public void setTOKEN (){
@@ -74,6 +77,11 @@ public class GorestAPI {
     public void getSingleCommentInvalid(String id){
         SerenityRest.given()
                 .pathParam("xid",id);
+    }
+
+    @Step("Get single comment blank")
+    public void getSingleCommentBlank(){
+        SerenityRest.given();
     }
 
     @Step("Post Create comment with auth")
@@ -140,6 +148,11 @@ public class GorestAPI {
     public void setDeleteCommentWithoutAuth(int id){
         SerenityRest.given()
                 .pathParam(GorestResponses.ID,id);
+    }
+
+    @Step("Delete comments blank parameter with auth")
+    public void setDeleteCommentBlankParameterWithAuth(){
+        SerenityRest.given().header("Authorization","Bearer "+TOKEN);
     }
 
     @Step("Get list todos")
