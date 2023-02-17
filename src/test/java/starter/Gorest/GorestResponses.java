@@ -11,5 +11,6 @@ public class GorestResponses {
     public static String MESSAGE1 = "[0]['message']";
     public static  String NAME2 = "[0]['field']";
     public static String MESSAGE2 = "[0]['message']";
+    public static String ID2 = "[0]['id']";
 
 }
