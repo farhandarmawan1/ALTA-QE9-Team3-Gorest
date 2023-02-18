@@ -76,7 +76,7 @@ public class GorestAPI {
     @Step("Get single comment invalid")
     public void getSingleCommentInvalid(String id){
         SerenityRest.given()
-                .pathParam("xid",id);
+                .pathParam("string",id);
     }
 
     @Step("Get single comment blank")
