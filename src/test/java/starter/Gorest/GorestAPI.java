@@ -21,6 +21,17 @@ public class GorestAPI {
     public static String PUT_SINGLE_USER = Constant.BASE_URL + "/users/{put}";
     public static String POST_CREATE_USER = Constant.BASE_URL + "/{post}/";
     public static String USERS  = Constant.BASE_URL + "/users/";
+    public static String GET_LIST_COMMENT = Constant.BASE_URL + "/{comments}";
+    public static String GET_SINGLE_COMMENT = Constant.BASE_URL + "/posts/{idcomments}/comments";
+    public static String GET_SINGLE_COMMENT_INVALID = Constant.BASE_URL + "/posts/{string}/comments";
+    public static String GET_SINGLE_COMMENT_BLANK = Constant.BASE_URL + "/posts//comments";
+    public static String POST_CREATED_COMMENT = Constant.BASE_URL + "/posts/{id}/comments";
+    public static String PUT_PATCH_UPDATE_COMMENT = Constant.BASE_URL + "/posts/{id}";
+    public static String DELETE_COMMENT = Constant.BASE_URL + "/posts/{id}";
+    public static String DELETE_COMMENT_STRING = Constant.BASE_URL + "/posts/{string}";
+    public static String DELETE_COMMENT_BLANK = Constant.BASE_URL + "/posts/";
+
+
 
     @Step("Token Authorization")
     public void setTOKEN (){
@@ -174,13 +185,13 @@ public class GorestAPI {
     @Step("Get single comment valid")
     public void getSingleCommentValid(int id){
         SerenityRest.given()
-                .pathParam(GorestResponses.ID,id);
+                .pathParam("idcomments",id);
     }
 
     @Step("Get single comment invalid")
     public void getSingleCommentInvalid(String id){
         SerenityRest.given()
-                .pathParam("xid",id);
+                .pathParam("string",id);
     }
 
     @Step("Get single comment blank")

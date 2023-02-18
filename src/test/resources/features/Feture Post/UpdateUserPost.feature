@@ -1,5 +1,4 @@
-@GoRest
-  Feature: Update User
+Feature: Resources Update User
     This test case is everything about update user
 
   Scenario: Update valid user

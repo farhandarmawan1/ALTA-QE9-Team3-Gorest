@@ -1,5 +1,4 @@
-@GoRest
-Feature: Get list end point
+Feature: Resources Get list end point
   This test case is everything about get list end point
 
   Scenario: Get list user without parameter

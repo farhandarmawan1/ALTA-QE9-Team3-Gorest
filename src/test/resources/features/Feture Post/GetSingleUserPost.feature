@@ -1,5 +1,4 @@
-@GoRest
-Feature: Get single user
+Feature: Resources Get single user
   This test case is everything about get single user
 
   Scenario Outline: Get single user with valid parameter

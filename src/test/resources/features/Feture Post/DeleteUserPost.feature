@@ -1,5 +1,4 @@
-@GoRest
-  Feature: Delete user
+Feature: Resources Delete user
     This test case is everything about delete user
 
   Scenario Outline: Delete user with valid id

@@ -1,5 +1,4 @@
-@GoRest
-  Feature: Post new user
+Feature: Resources Post new user
     This test case is everything about post user
 
   Scenario: Post new user with valid data

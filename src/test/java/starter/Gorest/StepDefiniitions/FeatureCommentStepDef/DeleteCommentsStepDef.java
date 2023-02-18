@@ -57,9 +57,5 @@ public class DeleteCommentsStepDef {
         SerenityRest.when().delete(gorestAPI.DELETE_COMMENT_BLANK);
     }
 
-    @Then("Status code should be {int} No Content")
-    public void statusCodeShouldBeNoContent(int nocontent) {
-        SerenityRest.then().statusCode(nocontent);
-    }
 
 }
