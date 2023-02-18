@@ -41,9 +41,6 @@ public class GorestAPI {
     public static final String POST_CREATE_TODOS = Constant.BASE_URL + "/{todos}";
     public static final String DELETE_TODOS = Constant.BASE_URL + "/todos/{id}";
     public static final String UPDATE_TODO = Constant.BASE_URL + "/{todos}";
-    public static String GET_LIST_USERS = Constant.BASE_URL + "/{users}";
-    public static String GET_LIST_USERS_PAGE = Constant.BASE_URL + "/users?page={id}";
-    public static String GET_LIST_TODOS = Constant.BASE_URL + "/{todos}";
 
 
     @Step ("Delete user")

@@ -28,8 +28,8 @@ public class UpdateTodosStepdefs {
     public void apiShouldReturnResponseOK(int OK) { SerenityRest.then().statusCode(OK);
     }
 
-    @And("Validate json schema")
-    public void validateJsonSchema() {
+    @And("Validate json schema update")
+    public void validateJsonSchema687() {
         File jsonSchemaUpdateTodos = new File(Constant.JSON_SCHEMA_TODOS + "UpdateTodosJSONSchema.json");
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(jsonSchemaUpdateTodos));
     }
