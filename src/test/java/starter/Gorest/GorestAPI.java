@@ -141,7 +141,7 @@ public class GorestAPI {
     @Step("Delete comments invalid parameter with auth")
     public void setDeleteCommentInvalidParameterWithAuth(String id){
         SerenityRest.given().header("Authorization","Bearer "+TOKEN)
-                .pathParam(GorestResponses.ID,id);
+                .pathParam("string",id);
     }
 
     @Step("Delete comments without auth")

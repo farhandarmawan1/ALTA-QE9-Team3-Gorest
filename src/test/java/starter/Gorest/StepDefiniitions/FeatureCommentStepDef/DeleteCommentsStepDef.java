@@ -3,6 +3,8 @@ package starter.Gorest.StepDefiniitions.FeatureCommentStepDef;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import starter.Gorest.GorestAPI;
@@ -14,8 +16,11 @@ public class DeleteCommentsStepDef {
 
     @Steps
     GorestAPI gorestAPI;
-    @Given("Delete comments valid parameter {int} with auth token")
-    public void deleteCommentValidParamaterWithAuthToken(int id) {
+    @Given("Delete comments valid parameter with auth token")
+    public void deleteCommentValidParamaterWithAuthToken() {
+        Response response = SerenityRest.get("https://gorest.co.in/public/v2/posts/");
+        JsonPath jsonPath= response.jsonPath();
+        int id = jsonPath.getInt("[0]['id']");
         gorestAPI.setDeleteCommentWithAuth(id);
     }
 
@@ -24,8 +29,11 @@ public class DeleteCommentsStepDef {
         gorestAPI.setDeleteCommentInvalidParameterWithAuth(id);
     }
 
-    @Given("Delete comments valid parameter {int} without auth token")
-    public void deleteCommentvalidParamWithoutAuthToken(int id){
+    @Given("Delete comments valid parameter without auth token")
+    public void deleteCommentvalidParamWithoutAuthToken(){
+        Response response = SerenityRest.get("https://gorest.co.in/public/v2/users/");
+        JsonPath jsonPath= response.jsonPath();
+        int id = jsonPath.getInt("[0]['id']");
         gorestAPI.setDeleteCommentWithoutAuth(id);
     }
 
