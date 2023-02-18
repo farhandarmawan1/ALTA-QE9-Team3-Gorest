@@ -1,5 +1,9 @@
 package starter.Gorest;
 
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import net.serenitybdd.rest.SerenityRest;
+
 public class GorestResponses {
     public static String ID = "id";
     public static String MESSAGE = "message";
