@@ -1,4 +1,4 @@
-Feature:  delete user
+Feature: [User]delete user
 
   Scenario: Delete user id registered with auth token
     Given Delete user id registered valid parameter with auth token

@@ -1,4 +1,4 @@
-Feature: Get list user
+Feature: [user]Get list user
 
   Scenario: Get list user with valid parameter
   Given Get list user with valid parameter

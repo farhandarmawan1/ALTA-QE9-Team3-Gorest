@@ -1,4 +1,4 @@
-Feature:Get single user
+Feature: [user] Get single user
 
   Scenario: Get single user detail registered
     Given Get single user detail registered

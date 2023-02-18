@@ -1,4 +1,4 @@
-Feature: Post creat new user
+Feature: [user] Post creat new user
 
   Scenario: Post create new user valid parameter and json with auth token
     Given Post create new user valid paramater and json with auth token
@@ -21,26 +21,26 @@ Feature: Post creat new user
     And Respons body should be field "name" message "can't be blank"
     And Validate post create new user empty name resources json schema
 
-    Scenario: Post create new user valid parameter and empty email json
-      Given Post create new user valid parameter and empty email json with auth token
-      When Send post create new user parameter
-      Then Status code should be 422 Unprocessable Entity
-      And Respons body should be field "email" message "can't be blank"
-      And Validate post create new user empty email resources json schema
+  Scenario: Post create new user valid parameter and empty email json
+    Given Post create new user valid parameter and empty email json with auth token
+    When Send post create new user parameter
+    Then Status code should be 422 Unprocessable Entity
+    And Respons body should be field "email" message "can't be blank"
+    And Validate post create new user empty email resources json schema
 
-      Scenario: Post create new user valid parameter and empty gender json
-        Given Post create new user valid parameter and empty gender json with auth token
-        When Send post create new user parameter
-        Then Status code should be 422 Unprocessable Entity
-        And Respons body should be field "gender" message "can't be blank, can be male of female"
-        And Validate post create new user empty gender resources json schema
+  Scenario: Post create new user valid parameter and empty gender json
+    Given Post create new user valid parameter and empty gender json with auth token
+    When Send post create new user parameter
+    Then Status code should be 422 Unprocessable Entity
+    And Respons body should be field "gender" message "can't be blank, can be male of female"
+    And Validate post create new user empty gender resources json schema
 
-    Scenario: Post create new user valid parameter and empty status json
-      Given Post create new user valid parameter and empty status json with auth token
-      When Send post create new user parameter
-      Then Status code should be 422 Unprocessable Entity
-      And Respons body should be field "status" message "can't be blank"
-      And Validate post create new user empty status resources json schema
+  Scenario: Post create new user valid parameter and empty status json
+    Given Post create new user valid parameter and empty status json with auth token
+    When Send post create new user parameter
+    Then Status code should be 422 Unprocessable Entity
+    And Respons body should be field "status" message "can't be blank"
+    And Validate post create new user empty status resources json schema
 
   Scenario Outline: Post create new user with invalid parameter
         Given Post create new user invalid parameter "<string>" with auth token
