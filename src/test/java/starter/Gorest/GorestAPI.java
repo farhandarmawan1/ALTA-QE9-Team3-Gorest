@@ -164,6 +164,101 @@ public class GorestAPI {
         SerenityRest.given()
                 .pathParam("id",id);
     }
+
+    @Step("Get list comment")
+    public void getListComment(String comments){
+        SerenityRest.given()
+                .pathParam("comments",comments);
+    }
+
+    @Step("Get single comment valid")
+    public void getSingleCommentValid(int id){
+        SerenityRest.given()
+                .pathParam(GorestResponses.ID,id);
+    }
+
+    @Step("Get single comment invalid")
+    public void getSingleCommentInvalid(String id){
+        SerenityRest.given()
+                .pathParam("xid",id);
+    }
+
+    @Step("Get single comment blank")
+    public void getSingleCommentBlank(){
+        SerenityRest.given();
+    }
+
+    @Step("Post Create comment with auth")
+    public void postCreatedCommentWithAuth(int id, File json){
+        SerenityRest.given().header("Authorization","Bearer "+TOKEN)
+                .pathParam(GorestResponses.ID,id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
+    @Step("Post Create comment without auth")
+    public void postCreatedCommentNoAuth(int id, File json){
+        SerenityRest.given()
+                .pathParam(GorestResponses.ID,id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
+    @Step("Put Update comment with auth")
+    public void putUpdateCommentWithAuth(int id, File json){
+        SerenityRest.given().header("Authorization","Bearer "+TOKEN)
+                .pathParam(GorestResponses.ID,id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
+    @Step("Put Update comment without auth")
+    public void putUpdateCommentNoAuth(int id, File json){
+        SerenityRest.given()
+                .pathParam(GorestResponses.ID,id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
+    @Step("Patch Update comment with auth")
+    public void patchUpdateCommentWithAuth(int id, File json){
+        SerenityRest.given().header("Authorization","Bearer "+TOKEN)
+                .pathParam(GorestResponses.ID,id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
+    @Step("Patch Update comment without auth")
+    public void patchUpdateCommentNoAuth(int id, File json){
+        SerenityRest.given()
+                .pathParam(GorestResponses.ID,id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
+    @Step("Delete comments with auth")
+    public void setDeleteCommentWithAuth(int id){
+        SerenityRest.given().header("Authorization","Bearer "+TOKEN)
+                .pathParam(GorestResponses.ID,id);
+    }
+
+    @Step("Delete comments invalid parameter with auth")
+    public void setDeleteCommentInvalidParameterWithAuth(String id){
+        SerenityRest.given().header("Authorization","Bearer "+TOKEN)
+                .pathParam("string",id);
+    }
+
+    @Step("Delete comments without auth")
+    public void setDeleteCommentWithoutAuth(int id){
+        SerenityRest.given()
+                .pathParam(GorestResponses.ID,id);
+    }
+
+    @Step("Delete comments blank parameter with auth")
+    public void setDeleteCommentBlankParameterWithAuth(){
+        SerenityRest.given().header("Authorization","Bearer "+TOKEN);
+    }
+
     @Step("Get list todos")
     public void getListTodos(String todos){
         SerenityRest.given().pathParam("todos", todos);
