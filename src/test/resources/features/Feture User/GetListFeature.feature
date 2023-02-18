@@ -1,4 +1,4 @@
-Feature: Get list user
+Feature: [user]Get list user
 
   Scenario: Get list user with valid parameter
   Given Get list user with valid parameter
@@ -32,10 +32,10 @@ Feature: Get list user
     When Send get list user parameter page
     Then Status code should be 404 Not Found
   Examples:
-    | id   |
-    | 100  |
-    | 5087 |
-    | 1000 |
+    | id       |
+    | 8786868  |
+    | 5087880  |
+    | 10008787 |
 
 
 

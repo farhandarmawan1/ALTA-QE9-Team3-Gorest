@@ -13,4 +13,6 @@ public class Constant {
     public static final String JSON_SCHEMA_TODOS = DIR+"/src/test/resources/JSON/JsonSchema/FeatureTodos/";
     public static final String JSON_SCHEMA_SINGLE_LIST_TODO = DIR+"/src/test/resources/JSON/JsonSchema/FeatureTodos/";
     public static final String JSON_REQ_CREATE_TODO = DIR+"/src/test/resources/JSON/ReqBody/FeatureTodos/";
+    public static final String JSON_SCHEMA_POST = DIR+"/src/test/resources/JSON/JsonSchema/FeaturePost/";
+    public static final String JSON_SCHEMA_COMMENT= DIR+"/src/test/resources/JSON/JsonSchema/FeatureComment/";
 }
