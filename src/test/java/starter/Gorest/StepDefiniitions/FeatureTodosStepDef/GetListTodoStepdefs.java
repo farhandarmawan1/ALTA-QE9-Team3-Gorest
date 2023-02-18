@@ -6,12 +6,15 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import net.serenitybdd.rest.SerenityRest;
+import net.thucydides.core.annotations.Steps;
 import starter.Gorest.GorestAPI;
 import starter.Gorest.Utils.Constant;
 
 import java.io.File;
 
 public class GetListTodoStepdefs {
+
+    @Steps
     GorestAPI gorestAPI;
 
     @Given("Get list todos with valid parameter")
@@ -31,5 +34,9 @@ public class GetListTodoStepdefs {
     public void validateJsonSchemaListTodos() {
         File jsonSchemaListTodos = new File(Constant.JSON_SCHEMA_TODOS + "ListTodosJSONSchema.json");
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(jsonSchemaListTodos));
+    }
+
+    @Given("Get list todos with invalid parameter")
+    public void getListTodosWithInvalidParameter() { gorestAPI.getListTodos("adsg");
     }
 }

@@ -1,18 +1,20 @@
 package starter.Gorest;
 
 
+
+import io.restassured.http.ContentType;
 import com.github.javafaker.Faker;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import starter.Gorest.Utils.Constant;
 
 import java.io.File;
 
 public class GorestAPI {
+
     Faker faker = new Faker();
     String FIRSTNAME = faker.name().firstName();
     public static  String TOKEN = "7bf93ec8d77c033e571a1dbcb59e5985a4297bcbb530efb8698d25b22919d782";
@@ -33,7 +35,15 @@ public class GorestAPI {
     public static String DELETE_COMMENT = Constant.BASE_URL + "/posts/{id}";
     public static String DELETE_COMMENT_STRING = Constant.BASE_URL + "/posts/{string}";
     public static String DELETE_COMMENT_BLANK = Constant.BASE_URL + "/posts/";
-
+    public static final String GET_SINGLE_LIST_TODOS_ID = Constant.BASE_URL + "/{todos}";
+    public static final String GET_SINGLE_LIST_TODOS_USER_ID = Constant.BASE_URL + "/{todos}";
+    public static final String CREATE_TODOS = Constant.BASE_URL + "/{todos}";
+    public static final String POST_CREATE_TODOS = Constant.BASE_URL + "/{todos}";
+    public static final String DELETE_TODOS = Constant.BASE_URL + "/todos/{id}";
+    public static final String UPDATE_TODO = Constant.BASE_URL + "/{todos}";
+    public static String GET_LIST_USERS = Constant.BASE_URL + "/{users}";
+    public static String GET_LIST_USERS_PAGE = Constant.BASE_URL + "/users?page={id}";
+    public static String GET_LIST_TODOS = Constant.BASE_URL + "/{todos}";
 
 
     @Step ("Delete user")
@@ -173,6 +183,7 @@ public class GorestAPI {
         SerenityRest.given().pathParam("id", id);
     }
 
+
     @Step("Get list users")
     public void getListUsers(String users) {
         SerenityRest.given()
@@ -284,5 +295,40 @@ public class GorestAPI {
         SerenityRest.given().pathParam("todos", todos);
     }
 
+    @Step("Get Single List Todos with Id")
+    public void getSingleListTodoswithId(int id) {
+        SerenityRest.given().pathParam("id" ,id);
+    }
 
+    @Step("Get Single List Todos With User Id")
+    public void getSingleListTodosWithUserId(int userId) {
+        SerenityRest.given().pathParam("userid" ,userId);
+    }
+
+
+    public void getSingleListTodoswithInvalidId(String id) {
+        SerenityRest.given()
+                .pathParam("id",id);
+    }
+
+    public void deleteTodoInvalid(String id) {
+        SerenityRest.given()
+            .pathParam("id",id);
+    }
+
+    public void deleteTodo(String todo) { SerenityRest.given().pathParam("todo" ,todo);
+    }
+
+
+    public void updatetodowithvalidstatus(String todo) { SerenityRest.given().pathParam("todo" ,todo);
+    }
+
+    @Step("Post Create Todo")
+    public void postCreateTodo(String todo,File json) { SerenityRest.given()
+            .pathParam("todo", todo)
+            .contentType(ContentType.JSON).body(json);
+    }
+
+    public void updatetodowithinvalid(String zzzz) { SerenityRest.given().pathParam("zzzz", zzzz);
+    }
 }
