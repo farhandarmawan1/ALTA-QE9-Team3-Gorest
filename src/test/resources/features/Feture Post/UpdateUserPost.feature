@@ -7,7 +7,7 @@
     When Send put update user parameter with json
     Then Status code should be 200 OK
     And Response body should be 384520 as user_id
-    And Validate put update user resources json schema
+    And Validate put update user resources json schema valid
 
   Scenario Outline: Update invalid id user
     Given Put update user with valid parameter "<id>" as id and json with auth token
@@ -32,11 +32,11 @@
     When Send put update user parameter with json
     Then Status code should be 200 OK
     And Response body should be 384520 as user_id
-    And Validate put update user resources json schema
+    And Validate put update user resources json schema valid
 
   Scenario: Update user without inputting body
     Given Put update user with valid parameter 19519 as id and not inputting body
     When Send put update user parameter with json
     Then Status code should be 200 OK
     And Response body should be 384520 as user_id
-    And Validate put update user resources json schema
+    And Validate put update user resources json schema valid

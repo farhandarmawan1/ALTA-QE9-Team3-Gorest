@@ -93,9 +93,4 @@ public class PostNewUser {
         File jsonSchema = new File(JsonSchema.UNREGISTERED_ID);
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
     }
-
-    @Then("Status code should be {int} Created")
-    public void statusCodeShouldBeCreated(int created) {
-        SerenityRest.then().statusCode(created);
-    }
 }

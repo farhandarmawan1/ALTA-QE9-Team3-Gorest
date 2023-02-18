@@ -37,8 +37,8 @@ public class UpdateUserPost {
         SerenityRest.then().body(GorestResponses.USER_ID, equalTo(user_id));
     }
 
-    @And("Validate put update user resources json schema")
-    public void validatePutUpdateUserResourcesJsonSchema() {
+    @And("Validate put update user resources json schema valid")
+    public void validatePutUpdateUserResourcesJsonSchemaPut() {
         File jsonSchema = new File(JsonSchema.PUT_VALID_USER);
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
     }
@@ -83,10 +83,5 @@ public class UpdateUserPost {
     public void putUpdateUserWithValidParameterAsIdAndNotInputtingBody(int id) {
         File jsonReq = new File(Constant.JSON_REQ_BODY_POST + "SendWithoutbody.json");
         putAPI.updateValidUser(id, jsonReq);
-    }
-
-    @Then("Status code should be {int} Unprocessable Entity")
-    public void statusCodeShouldBeUnprocessableEntity(int status) {
-        SerenityRest.then().statusCode(status);
     }
 }
