@@ -3,6 +3,8 @@ package starter.Gorest;
 
 import com.github.javafaker.Faker;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
@@ -23,15 +25,15 @@ public class GorestAPI {
     public static String POST_CREATE_USER = Constant.BASE_URL + "/{post}/";
     public static String USERS  = Constant.BASE_URL + "/users/";
 
-    @Step("Token Authorization")
-    public void setTOKEN (){
-        SerenityRest.given()
-                .header("Authorization","Bearer"+TOKEN);}
     @Step ("Delete user")
-    public void setDeleteSingleUser(int id){
+    public void setDeleteSingleUser2(int id){
         SerenityRest.given()
                 .pathParam("delete", id);
-
+    }
+    @Step ("Delete user")
+    public void setDeleteSingleUser(int id){
+        SerenityRest.given().header("Authorization","Bearer "+TOKEN)
+                .pathParam("delete", id);
     }
 
     @Step("PUT update User no auth")

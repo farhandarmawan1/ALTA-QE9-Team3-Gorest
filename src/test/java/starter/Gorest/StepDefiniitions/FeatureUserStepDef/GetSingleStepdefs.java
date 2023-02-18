@@ -4,6 +4,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import starter.Gorest.GorestAPI;
@@ -18,8 +20,11 @@ import static org.hamcrest.CoreMatchers.equalTo;
 public class GetSingleStepdefs {
     @Steps
     GorestAPI gorestAPI;
-    @Given("Get single user detail registered {int}")
-    public void getSingleUserDetailRegisteredId(int id) {
+    @Given("Get single user detail registered")
+    public void getSingleUserDetailRegisteredId() {
+        Response response = SerenityRest.get("https://gorest.co.in/public/v2/users/");
+        JsonPath jsonPath= response.jsonPath();
+        int id = jsonPath.getInt("[0]['id']");
         gorestAPI.setGetSingleUser(id);
 
     }
@@ -29,9 +34,6 @@ public class GetSingleStepdefs {
         SerenityRest.when().get(gorestAPI.GET_SINGLE_USER);
     }
 
-    @And("Respons body should be {int} user")
-    public void responsBodyShouldBeIdUser(int id) {SerenityRest.then().body(GorestResponses.ID,equalTo(id));
-    }
 
     @And("Validate get single user detail resources json schema")
     public void validateGetSingleUserDetaliResourcesJsonSchema() {
