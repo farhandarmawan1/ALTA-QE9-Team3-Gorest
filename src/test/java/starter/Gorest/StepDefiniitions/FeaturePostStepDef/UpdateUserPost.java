@@ -27,8 +27,8 @@ public class UpdateUserPost {
         putAPI.updateValidUser(id, jsonReq);
     }
 
-    @When("Send put update user parameter")
-    public void sendPutUpdateUserParameter() {
+    @When("Send put update user parameter with json")
+    public void sendPutUpdateUserParameterJson() {
         SerenityRest.when().put(PutAPI.PUT_VALID_USER);
     }
 
@@ -83,5 +83,10 @@ public class UpdateUserPost {
     public void putUpdateUserWithValidParameterAsIdAndNotInputtingBody(int id) {
         File jsonReq = new File(Constant.JSON_REQ_BODY_POST + "SendWithoutbody.json");
         putAPI.updateValidUser(id, jsonReq);
+    }
+
+    @Then("Status code should be {int} Unprocessable Entity")
+    public void statusCodeShouldBeUnprocessableEntity(int status) {
+        SerenityRest.then().statusCode(status);
     }
 }
