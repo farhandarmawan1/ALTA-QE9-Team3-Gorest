@@ -8,4 +8,4 @@ For more information about Serenity BDD, you can read the [**Serenity BDD Book**
 * [**Serenity BDD Blog**](https://johnfergusonsmart.com/category/serenity-bdd/) - regular articles about Serenity BDD
 * [**The Serenity Dojo**](https://www.serenity-dojo.com) - Tailored BDD and Test Automation Training and Mentoring
 
-[![contributors](https://img.shields.io/github/contributors/<username>/<repository-name>)](https://github.com/<username>/<repository-name>/graphs/contributors)
+[![contributors](https://img.shields.io/github/contributors/farhandarmawan1/ALTA-QE9-Team3-Gorest)](https://github.com/farhandarmawan1/ALTA-QE9-Team3-Gorest/graphs/contributors)
