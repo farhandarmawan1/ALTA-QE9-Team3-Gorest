@@ -7,3 +7,5 @@ For more information about Serenity BDD, you can read the [**Serenity BDD Book**
 * **[Byte-sized Serenity BDD](https://www.youtube.com/channel/UCav6-dPEUiLbnu-rgpy7_bw/featured)** - tips and tricks about Serenity BDD
 * [**Serenity BDD Blog**](https://johnfergusonsmart.com/category/serenity-bdd/) - regular articles about Serenity BDD
 * [**The Serenity Dojo**](https://www.serenity-dojo.com) - Tailored BDD and Test Automation Training and Mentoring
+
+[![contributors](https://img.shields.io/github/contributors/<username>/<repository-name>)](https://github.com/<username>/<repository-name>/graphs/contributors)
